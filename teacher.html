@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Genius Brain - 강사 소개</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        .teacher-profile {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .profile-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .profile-image {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            margin: 0 auto 2rem;
+            object-fit: cover;
+            border: 5px solid #3498db;
+        }
+
+        .profile-name {
+            font-size: 2.5rem;
+            color: #2c3e50;
+            margin-bottom: 1rem;
+        }
+
+        .profile-title {
+            font-size: 1.2rem;
+            color: #666;
+            margin-bottom: 2rem;
+        }
+
+        .achievement-section {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            margin-bottom: 2rem;
+        }
+
+        .achievement-section h3 {
+            color: #2c3e50;
+            margin-bottom: 1.5rem;
+            font-size: 1.5rem;
+        }
+
+        .achievement-list {
+            list-style: none;
+        }
+
+        .achievement-list li {
+            margin-bottom: 1rem;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .achievement-list li::before {
+            content: "•";
+            color: #3498db;
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+        }
+
+        .teaching-philosophy {
+            background: #f8f9fa;
+            padding: 2rem;
+            border-radius: 10px;
+            margin-bottom: 2rem;
+        }
+
+        .teaching-philosophy p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #444;
+        }
+
+        .back-button {
+            display: inline-block;
+            padding: 1rem 2rem;
+            background: #3498db;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background 0.3s;
+            margin-top: 2rem;
+        }
+
+        .back-button:hover {
+            background: #2980b9;
+        }
+
+        @media (max-width: 768px) {
+            .teacher-profile {
+                padding: 1rem;
+            }
+
+            .profile-name {
+                font-size: 2rem;
+            }
+
+            .achievement-section,
+            .teaching-philosophy {
+                padding: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">Genius Brain</div>
+            <ul>
+                <li><a href="./index.html">홈</a></li>
+                <li><a href="./index.html#about">소개</a></li>
+                <li><a href="./index.html#features">특징</a></li>
+                <li><a href="./index.html#curriculum">수업안내</a></li>
+                <li><a href="./contact.html">문의하기</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="teacher-profile">
+        <div class="profile-header">
+            <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="조윤정 강사" class="profile-image">
+            <h1 class="profile-name">조윤정</h1>
+            <p class="profile-title">Genius Brain 대표 강사</p>
+        </div>
+
+        <div class="achievement-section">
+            <h3>주요 경력 및 수상</h3>
+            <ul class="achievement-list">
+                <li>MENSA 코리아 회원</li>
+                <li>이세돌 초청 보드게임 국가대표 참가 (2023)</li>
+                <li>루미큐브 세계대회 한국대표 준우승 (2009)</li>
+                <li>마작 국가대표 선수</li>
+                <li>루미큐브 국가대표 선수</li>
+                <li>'브레인코리아' 퀴즈 프로그램 출연</li>
+                <li>육아잡지 『베이비』 영재교육 인터뷰 수록</li>
+            </ul>
+        </div>
+
+        <div class="teaching-philosophy">
+            <h3>교육 철학</h3>
+            <p>
+                "저는 단순한 지식 전달이 아닌, 아이들이 스스로 생각하고 문제를 해결할 수 있는 능력을 키우는 것을 중요시합니다. 
+                마인드맵을 활용한 수업을 통해 복잡한 개념도 쉽게 이해하고, 자신만의 방식으로 정리할 수 있도록 돕습니다. 
+                보드게임과 퀴즈를 통한 경험을 바탕으로, 아이들이 즐겁게 배우면서도 논리적 사고력과 문제해결 능력을 키울 수 있도록 지도하고 있습니다."
+            </p>
+        </div>
+
+        <div class="achievement-section">
+            <h3>전문 분야</h3>
+            <ul class="achievement-list">
+                <li>마인드맵 기반 학습 지도</li>
+                <li>논리적 사고력 향상 교육</li>
+                <li>보드게임을 활용한 교육</li>
+                <li>초등 수학 교육</li>
+                <li>독해력 향상 교육</li>
+                <li>기억력 향상 훈련</li>
+            </ul>
+        </div>
+
+        <a href="index.html" class="back-button">홈으로 돌아가기</a>
+    </main>
+
+    <footer>
+        <p>우리 아이가 공부에 자신감을 갖고, 실력을 키워가는 모습을 보고 싶으시다면<br>Genius Brain에서 그 변화를 함께 느껴보세요.</p>
+        <div class="social-links">
+            <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+            <a href="#" class="social-link"><i class="fab fa-youtube"></i></a>
+            <a href="#" class="social-link"><i class="fab fa-kakao"></i></a>
+        </div>
+    </footer>
+</body>
+</html> 

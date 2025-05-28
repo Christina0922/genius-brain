@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Genius Brain - 문의하기</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        .contact-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+        }
+
+        .contact-form {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: #2c3e50;
+            font-weight: 500;
+        }
+
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 0.8rem;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-family: 'Noto Sans KR', sans-serif;
+        }
+
+        .form-group textarea {
+            height: 150px;
+            resize: vertical;
+        }
+
+        .submit-button {
+            background: #3498db;
+            color: white;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: background 0.3s;
+        }
+
+        .submit-button:hover {
+            background: #2980b9;
+        }
+
+        .contact-info {
+            background: #f8f9fa;
+            padding: 2rem;
+            border-radius: 10px;
+        }
+
+        .info-item {
+            margin-bottom: 1.5rem;
+        }
+
+        .info-item i {
+            color: #3498db;
+            margin-right: 1rem;
+            width: 1.5rem;
+        }
+
+        .chat-widget {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            z-index: 1000;
+        }
+
+        .chat-button {
+            background: #3498db;
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+            transition: transform 0.3s;
+        }
+
+        .chat-button:hover {
+            transform: scale(1.1);
+        }
+
+        .chat-window {
+            position: fixed;
+            bottom: 5rem;
+            right: 2rem;
+            width: 350px;
+            height: 500px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 3px 20px rgba(0,0,0,0.2);
+            display: none;
+            flex-direction: column;
+        }
+
+        .chat-header {
+            background: #3498db;
+            color: white;
+            padding: 1rem;
+            border-radius: 10px 10px 0 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .chat-messages {
+            flex-grow: 1;
+            padding: 1rem;
+            overflow-y: auto;
+        }
+
+        .chat-input {
+            padding: 1rem;
+            border-top: 1px solid #ddd;
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .chat-input input {
+            flex-grow: 1;
+            padding: 0.5rem;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        .chat-input button {
+            background: #3498db;
+            color: white;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .message {
+            margin-bottom: 1rem;
+            padding: 0.8rem;
+            border-radius: 10px;
+            max-width: 80%;
+        }
+
+        .message.received {
+            background: #f1f1f1;
+            margin-right: auto;
+        }
+
+        .message.sent {
+            background: #3498db;
+            color: white;
+            margin-left: auto;
+        }
+
+        @media (max-width: 768px) {
+            .contact-container {
+                grid-template-columns: 1fr;
+            }
+
+            .chat-window {
+                width: 100%;
+                height: 100%;
+                bottom: 0;
+                right: 0;
+                border-radius: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">Genius Brain</div>
+            <ul>
+                <li><a href="./index.html">홈</a></li>
+                <li><a href="./index.html#about">소개</a></li>
+                <li><a href="./index.html#features">특징</a></li>
+                <li><a href="./index.html#curriculum">수업안내</a></li>
+                <li><a href="./teacher.html">원장소개</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <div class="contact-container">
+            <div class="contact-form">
+                <h2>문의하기</h2>
+                <form id="contactForm">
+                    <div class="form-group">
+                        <label for="name">이름</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">연락처</label>
+                        <input type="tel" id="phone" name="phone" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">이메일</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="subject">문의 주제</label>
+                        <select id="subject" name="subject" required>
+                            <option value="">선택해주세요</option>
+                            <option value="curriculum">수업 커리큘럼</option>
+                            <option value="schedule">수업 일정</option>
+                            <option value="fee">수강료</option>
+                            <option value="other">기타 문의</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">문의 내용</label>
+                        <textarea id="message" name="message" required></textarea>
+                    </div>
+                    <button type="submit" class="submit-button">문의하기</button>
+                </form>
+            </div>
+
+            <div class="contact-info">
+                <h2>연락처 정보</h2>
+                <div class="info-item">
+                    <i class="fas fa-phone"></i>
+                    <p>전화: 010-7373-3709</p>
+                </div>
+                <div class="info-item">
+                    <i class="fas fa-clock"></i>
+                    <p>운영시간: 평일 10:00 - 20:00</p>
+                </div>
+                <div class="info-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <p>위치: 6단지 거주 (문의 시 개별 안내)</p>
+                </div>
+                <div class="info-item">
+                    <i class="fas fa-info-circle"></i>
+                    <p>수업 중에는 전화를 받기 어려우니 문자나 채팅으로 문의해 주시면 감사하겠습니다.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="chat-widget">
+            <div class="chat-button" onclick="toggleChat()">
+                <i class="fas fa-comments"></i>
+            </div>
+            <div class="chat-window" id="chatWindow">
+                <div class="chat-header">
+                    <span>실시간 상담</span>
+                    <button onclick="toggleChat()" style="background: none; border: none; color: white; cursor: pointer;">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+                <div class="chat-messages" id="chatMessages">
+                    <div class="message received">
+                        안녕하세요! Genius Brain입니다. 무엇을 도와드릴까요?
+                    </div>
+                </div>
+                <div class="chat-input">
+                    <input type="text" id="messageInput" placeholder="메시지를 입력하세요...">
+                    <button onclick="sendMessage()">전송</button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>우리 아이가 공부에 자신감을 갖고, 실력을 키워가는 모습을 보고 싶으시다면<br>Genius Brain에서 그 변화를 함께 느껴보세요.</p>
+        <div class="social-links">
+            <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+            <a href="#" class="social-link"><i class="fab fa-youtube"></i></a>
+            <a href="#" class="social-link"><i class="fab fa-kakao"></i></a>
+        </div>
+    </footer>
+
+    <script>
+        function toggleChat() {
+            const chatWindow = document.getElementById('chatWindow');
+            chatWindow.style.display = chatWindow.style.display === 'flex' ? 'none' : 'flex';
+        }
+
+        function sendMessage() {
+            const input = document.getElementById('messageInput');
+            const message = input.value.trim();
+            
+            if (message) {
+                const chatMessages = document.getElementById('chatMessages');
+                
+                // 사용자 메시지 추가
+                const userMessage = document.createElement('div');
+                userMessage.className = 'message sent';
+                userMessage.textContent = message;
+                chatMessages.appendChild(userMessage);
+                
+                // 입력창 초기화
+                input.value = '';
+                
+                // 자동 응답 (실제로는 서버와 통신해야 함)
+                setTimeout(() => {
+                    const response = document.createElement('div');
+                    response.className = 'message received';
+                    response.textContent = '문의해 주셔서 감사합니다. 빠른 시일 내에 답변 드리도록 하겠습니다.';
+                    chatMessages.appendChild(response);
+                    
+                    // 스크롤을 최하단으로 이동
+                    chatMessages.scrollTop = chatMessages.scrollHeight;
+                }, 1000);
+                
+                // 스크롤을 최하단으로 이동
+                chatMessages.scrollTop = chatMessages.scrollHeight;
+            }
+        }
+
+        // Enter 키로 메시지 전송
+        document.getElementById('messageInput').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                sendMessage();
+            }
+        });
+
+        // 폼 제출 처리
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('문의가 접수되었습니다. 빠른 시일 내에 답변 드리도록 하겠습니다.');
+            this.reset();
+        });
+    </script>
+</body>
+</html> 
